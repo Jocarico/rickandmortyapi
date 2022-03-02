@@ -5,11 +5,12 @@ class Http{
 
     get_characters = async () =>{
         try {
-            const request = await fetch(`${URL}`);
+            const request = await fetch(`${URL}?page=18`);
             const response = await request.json();
             return response.results
+
         } catch (err){
-            throw Error(err);
+            throw new Error(err);
         }
     };
     get_character = async(id) =>{
@@ -18,7 +19,7 @@ class Http{
             const response = await request.json();
             return response
         } catch (err){
-            throw Error(err);
+            throw new Error(err);
         }
     }
 }

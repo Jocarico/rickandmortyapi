@@ -6,19 +6,19 @@ import "./detail.css";
 
 const DetailCharacter = () => {
     const { id } = useParams();
-    const [character, useCharacter] = useState({});
+    const [character, setCharacter] = useState({});
     const [origin, setOrigin] = useState({});
     const [location, setLocation] = useState({});
 
     useEffect(() =>{
         const fetchCharacter = async ( ) => {
             const character = await Http.instance.get_character(id);
-            setCharacter(character);
-            setOrigin(character.origin);
-            setLocation(character.location);
-        };
+            setCharacter(character)
+            setOrigin(character.origin)
+            setLocation(character.location)
+        }
         fetchCharacter();
-    }, [1]);
+    }, [id])
 
     return(
         <React.Fragment>
