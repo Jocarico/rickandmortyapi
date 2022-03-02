@@ -5,11 +5,11 @@ import Http from "../../../lib/request";
 
 class Home extends React.Component{
     state = {
-        title:"Example of request using React",
+        title:"Rick and Morty API with React",
         characters:[],
     };
     componentDidMount = () => {
-        this.get_data(URL);
+        this.get_data();
     };
     
     get_data = async () => {
@@ -21,14 +21,18 @@ class Home extends React.Component{
         
         return(
             <React.Fragment>
-                <h1>{this.state.title}</h1>
-                <div className="Characters">
-                    {this.state.characters.map((character)=>{
-                        return(
-                            <Character character={character}/>
-                        )
-                    })}
+                <div className="back">
+                    <div className="logoHolder">
+                        <h1>Rick and Morty Characters</h1>
+                    </div>
+                    <div className="Characters">
+                        {this.state.characters.map((character) =>{
+                            return <Character character = {character} />
+                        })}
+                        
+                    </div>
                 </div>
+                
             </React.Fragment>
         );
     }

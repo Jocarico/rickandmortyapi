@@ -11,14 +11,14 @@ const DetailCharacter = () => {
     const [location, setLocation] = useState({});
 
     useEffect(() =>{
-        const fetchCharacter = async ( ) => {
+        const fetchCharacter = async () => {
             const character = await Http.instance.get_character(id);
-            setCharacter(character)
-            setOrigin(character.origin)
-            setLocation(character.location)
-        }
+            setCharacter(character);
+            setOrigin(character.origin);
+            setLocation(character.location);
+        };
         fetchCharacter();
-    }, [id])
+    },);
 
     return(
         <React.Fragment>
@@ -54,14 +54,9 @@ const DetailCharacter = () => {
                             <h3>Location: </h3>
                             <p>{location.name}</p>
                         </div>
-
-
                     </div>
-
                 </div>
-
             </div>
-
             </div>
         </React.Fragment>
     );
